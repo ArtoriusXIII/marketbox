@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
+ruby "2.2.1"
 
 gem 'rails', '4.2.6'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'uglifier', '>= 1.3.0'
@@ -15,9 +15,13 @@ gem 'paperclip-dropbox', '~> 1.3', '>= 1.3.2'
 gem "figaro"
 gem 'devise'
 
-
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 group :development, :test do
   gem 'byebug'
+  gem 'sqlite3'
 end
 group :development do
   gem 'web-console', '~> 2.0'
